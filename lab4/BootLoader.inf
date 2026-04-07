@@ -1,0 +1,35 @@
+## @file
+#  BootLoader для лабы №4 (Multiboot2)
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = BootLoader
+  FILE_GUID                      = 02353A23-0519-4CD4-A520-FF6C8F1BF6E6
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = UefiMain
+
+[Sources]
+  BootLoader.c
+  JumpToKernel.nasm
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]
+  UefiApplicationEntryPoint
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  UefiLib
+  PcdLib
+  DebugLib
+  DxeServicesLib
+  MemoryAllocationLib
+  DevicePathLib     
+	
+[Protocols]
+  gEfiLoadedImageProtocolGuid
+  gEfiSimpleFileSystemProtocolGuid
+  gEfiGraphicsOutputProtocolGuid
